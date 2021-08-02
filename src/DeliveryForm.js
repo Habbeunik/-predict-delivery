@@ -84,7 +84,7 @@ const DeliveryForm = ({ onSubmit }) => {
       <RadioField
         label="What is your placenta location?"
         options={[
-          { label: "Posterio", value: "POSTERIOR" },
+          { label: "Posterior", value: "POSTERIOR" },
           { label: "Anterior", value: "ANTERIOR" },
           { label: "Fundal", value: "FUNDAL" },
         ]}
