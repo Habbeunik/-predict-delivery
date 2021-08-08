@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
 import "./App.css";
 
 import DeliveryForm from "./DeliveryForm";
@@ -16,33 +15,15 @@ function App() {
     <div className="page">
       <div className="formContainer">
         <DeliveryForm onSubmit={handleSubmit} />
-        <Modal
-          basic
-          size="small"
-          open={!!prediction}
-          onClose={() => setPrediction(null)}
-        >
-          <Header icon>
-            <Icon name="user md" />
-            {prediction}
-          </Header>
-          <Modal.Content>
-            <p>
-              From the data collected and the model we have trained this is the
-              most likely outcome.
-            </p>
-          </Modal.Content>
-          <Modal.Actions>
-            <Button
-              basic
-              color="red"
-              inverted
-              onClick={() => setPrediction(false)}
-            >
-              <Icon name="remove" /> Close
-            </Button>
-          </Modal.Actions>
-        </Modal>
+      </div>
+      <div class={`result ${prediction && "resultActive"}`}>
+        <div>
+          <div class="resultHeader">Prediction</div>
+          <div class="resultText">{prediction}</div>
+          <div class="resultClose" onClick={() => setPrediction(null)}>
+            Close x
+          </div>
+        </div>
       </div>
     </div>
   );

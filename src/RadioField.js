@@ -1,19 +1,18 @@
 import React from "react";
-import { Radio } from "semantic-ui-react";
 
-const RadioField = ({ options = [], label, onChange, value }) => {
+const RadioField = ({ options = [], isActive, label, onChange }) => {
   return (
-    <div className="field">
+    <div className={`field ${isActive && "fieldIsActive"}`}>
       <label className="fieldLabel">{label}</label>
       <div className="radioGroup">
         {options.map((opt) => (
-          <div className="radioGroupItem" key={opt.value}>
-            <Radio
-              label={opt.label}
-              onChange={() => onChange(opt.value)}
-              checked={value === opt.value}
-            />
-          </div>
+          <button
+            className="radioGroupItem"
+            key={opt.value}
+            onClick={() => onChange(opt.value)}
+          >
+            {opt.label}
+          </button>
         ))}
       </div>
     </div>
